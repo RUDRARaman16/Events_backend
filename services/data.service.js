@@ -36,33 +36,11 @@ const register = (uname, userID, pswd) => {
       }
     })
   }
-      // let users = UserDetails
-      // if (id in users) {
-      //   return {
-      //     statusCode: 422,
-      //     status: false,
-      //     message: "User Exist Please login "
-      //   }
-      // }
-      // else {
-      //   users[id] = {
-      //     id,
-      //     username: uname,
-      //     password: pswd,
-      //     events: []
-      //   }
-      //   return {
+     
 
-      //     statusCode: 200,
-      //     status: true,
-      //     message: "Successfully Registered"
-
-      //   }
-      // }
-
-      const login = (req, userID, password) => {//should be same as database keys 
+      const login = (req, userID, password) => {
         var userID = parseInt(userID)
-        return db.User.findOne({ userID, password }) //should be same as database keys 
+        return db.User.findOne({ userID, password }) 
           .then(user => {
             if (user) {
 
@@ -84,35 +62,10 @@ const register = (uname, userID, pswd) => {
             }
           })
       }
-      // let users = UserDetails
-      // if (id in users) {
-      //   if (pswd == users[id]["password"]) {
-      //     req.session.currentUID = users[id]
-      //     console.log(req.session.currentUID)
-      //     return {
-      //       statusCode: 200,
-      //       status: true,
-      //       message: "Login Successfull"
-      //     }
-      //   }
-      //   else {
-      //     return {
-      //       statusCode: 422,
-      //       status: false,
-      //       message: "incorrect password "
-      //     }
-      //   }
-      // }
-      // else {
-      //   return {
-      //     statusCode: 422,
-      //     status: false,
-      //     message: "Invalid Account"
-      //   }
-      // }
+    
 
       const addEvent = (req, userID, edate, edes) => {
-        // var userID = parseInt(userID)
+        
         return db.User.findOne({ userID })
           .then(user => {
 
@@ -132,31 +85,12 @@ const register = (uname, userID, pswd) => {
               return {
                 statusCode: 200,
                 status: true,
-                message: "Event Added Successfully"
+                message: "Successfully Added"
               }
             }
           })
       }
-      // let users = UserDetails
-      // if (id in users) {
-      //   users[id]["events"].push({
-      //     edate: edate,
-      //     edes: edes
-      //   })
-      //   return {
-      //     statusCode: 200,
-      //     status: true,
-      //     message: "Event Added  Successfully"
-      //   }
-
-      // }
-      // else {
-      //   return {
-      //     statusCode: 422,
-      //     status: false,
-      //     message: "Failed to Add , Try again"
-      //   }
-      // }
+     
 
       const viewEvent = (userID) => {
         return db.User.findOne({ userID })
@@ -177,21 +111,7 @@ const register = (uname, userID, pswd) => {
             }
           })
       }
-      // let users = UserDetails;
-      // if (id in users) {
-      //   return {
-      //     statusCode: 200,
-      //     status: true,
-      //     message: users[id].events
-      //   }
-      // }
-      // else {
-      //   return {
-      //     statusCode: 422,
-      //     status: false,
-      //     message: "Failed to view"
-      //   }
-      // }
+    
 
       module.exports = {
         register,

@@ -12,19 +12,11 @@ app.use(cors({
 
 app.use(session({
     secret: 'randomsecurestring',
-    resave: false, //saving session after modification else true
-    saveUninitialized: false //saving Uninitialized values here let it be false
+    resave: false, 
+    saveUninitialized: false 
 }))
 app.use(express.json())
-// app.use((req, res, next) => {
-//     console.log("Middle Ware")
-//     next()
-// })
-// const logMiddleware=(req,res,next)=>{
-//     console.log(req.body)
-//     next()
-// }
-// app.use(logMiddleware)
+
 
 
 const authMiddleware = (req, res, next) => {
